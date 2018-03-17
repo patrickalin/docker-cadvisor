@@ -1,0 +1,3 @@
+FROM $REGISTRY/$IMAGE_SRC:$TAG_SRC
+COPY localtime /etc/localtime
+COPY .htpasswd .htpasswd

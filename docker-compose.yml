@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   cadvisor:
-    image: cadvisor-image
+    image: registry.services.alin.be/cadvisor-alin:v1
     deploy:
       mode: global
       resources:
@@ -16,13 +16,13 @@ services:
         - traefik.frontend.rule=Host:cadvisor.services.alin.be
         - traefik.frontend.entryPoints=http,https
         - traefik.backend.loadbalancer.method=wrr
-        - traefik.frontend.auth.basic=admin:$$apr1$$gWiqD1WO$$kJ1Im7XyH2pH5V/D/DmcL.
     volumes:
        - /:/rootfs:ro
        - /var/run:/var/run:rw
        - /sys:/sys:ro
        - /var/lib/docker/:/var/lib/docker:ro
        - /dev/disk/:/dev/disk:ro
+    command: --http_auth_file .htpasswd --http_auth_realm cadvisor
 
 networks:
   default:
