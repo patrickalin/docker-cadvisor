@@ -4,7 +4,7 @@ GREEN='\e[1;32m'
 NC='\e[0m'
 
 IMAGE_SRC=google/cadvisor
-TAG_SRC=v0.29.0
+TAG_SRC=v0.30.2
 IMAGE_DEST=cadvisor
 TAG_DEST=v1
 REGISTRY=registry.services.alin.be
